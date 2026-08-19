@@ -116,6 +116,10 @@ html, body {
     justify-content: center;
 }
 
+.stuck_background .text {
+    min-width: 0;
+}
+
 .tall_parent {
     height: 180vh;
 }
@@ -594,7 +598,7 @@ details > p {
     width: 95%;
     padding-bottom: 20%;
     padding-top: 1%;
-    overflow-x: hidden; 
+    box-sizing: border-box;
 }
 
 .latvian_stuck_background .text,

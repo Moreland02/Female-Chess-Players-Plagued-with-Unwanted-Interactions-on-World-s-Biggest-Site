@@ -65,7 +65,7 @@ window.addEventListener('load', () => {
     pawn.style.transition = 'none';
 
     pawn.style.top = (boxLocation.top - containerLocation.top + 40) + 'px';
-    pawn.style.left = (boxLocation.left - containerLocation.left - 42) + 'px';
+    pawn.style.left = Math.max(0, boxLocation.left - containerLocation.left - 42) + 'px'; /* Stops the pawn from overflowing and causing a horizontal scroll bar to appear */
 
     pawn.offsetHeight;
 
@@ -80,7 +80,7 @@ window.addEventListener('resize', () => {
     const pawn = document.querySelector('.pawn');
     pawn.style.transition = 'none';
     pawn.style.top = (boxLocation.top - containerLocation.top + 40) + 'px';
-    pawn.style.left = (boxLocation.left - containerLocation.left - 42) + 'px';
+    pawn.style.left = Math.max(0, boxLocation.left - containerLocation.left - 42) + 'px';
     pawn.offsetHeight;
     pawn.style.transition = '';
 });
@@ -107,7 +107,7 @@ pawn_effect
     document.querySelector('.pawn').style.top = (pawnBoxLocation.top - pawnContainerLocation.top + 40) + 'px'; /*Moves the pawn downwards (changes its vertical coordinates) to the next box, according to the coordinates of the background and the textbox. 
                                                                                                                 Subtracts the background coordinates from the textbox location in order to take into account how other large
                                                                                                                 objects in the document may effect the position of the current elements to get a more accurate intended position for the pawn to move to */
-    document.querySelector('.pawn').style.left = (pawnBoxLocation.left - pawnContainerLocation.left - 42) + 'px'; /* Does the same as above, but handles the pawn's horizontal coordinates. The '40' and '42' are manually chosen numbers based on what looked best visually */
+    document.querySelector('.pawn').style.left = Math.max(0, pawnBoxLocation.left - pawnContainerLocation.left - 42) + 'px'; /* Does the same as above, but handles the pawn's horizontal coordinates. The '40' and '42' are manually chosen numbers based on what looked best visually */
 })
 
 .onStepProgress(pawn_animation_progress => {
@@ -137,7 +137,7 @@ window.addEventListener('load', () => {
     bishop.style.transition = 'none'; // disables the animation before setting position
 
     bishop.style.top = (boxLocation.top - containerLocation.top + 28) + 'px';
-    bishop.style.left = (boxLocation.left - containerLocation.left - 42) + 'px';
+    bishop.style.left = Math.max(0, boxLocation.left - containerLocation.left - 42) + 'px';
 
     bishop.offsetHeight; // forces the browser to apply the position immediately
 
@@ -152,7 +152,7 @@ window.addEventListener('resize', () => {
     const bishop = document.querySelector('.bishop');
     bishop.style.transition = 'none';
     bishop.style.top = (boxLocation.top - containerLocation.top + 28) + 'px';
-    bishop.style.left = (boxLocation.left - containerLocation.left - 42) + 'px';
+    bishop.style.left = Math.max(0, boxLocation.left - containerLocation.left - 42) + 'px';
     bishop.offsetHeight;
     bishop.style.transition = '';
 });
@@ -176,7 +176,7 @@ bishopEffect /* Works in the same way as the pawn effect. The bishop moves diago
     box.classList.add('active')
 
     document.querySelector('.bishop').style.top = (boxLocation.top - containerLocation.top + 28) + 'px';
-    document.querySelector('.bishop').style.left = (boxLocation.left - containerLocation.left - 42) + 'px';
+    document.querySelector('.bishop').style.left = Math.max(0, boxLocation.left - containerLocation.left - 42) + 'px';
 })
 .onStepProgress(bishop_animation_progress => {
     const stepBetweenBoxes = bishop_animation_progress.element.dataset.bishop;
