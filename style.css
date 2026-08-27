@@ -587,7 +587,7 @@ details > p {
     opacity: 1;
 }
 
-/* Latvian Investigation Section */
+/* Latvian Investigation and Sportsmanship Sections */
 .latvian_stuck_background, 
 .sportsmanship_stuck_background { /*These sections require a seperate background so they can be resized on mobile without resizing other sections */
     position: sticky;
@@ -603,10 +603,12 @@ details > p {
 
 .latvian_stuck_background .text,
 .sportsmanship_stuck_background .text {
-    width: 95%;
-    min-width: 1100px; /*large minimum width to force all text to appear without needing to scroll, in order to maintain the sticky effect */
-    max-width: 1200px;  
-    box-sizing: border-box; /*This was integrated by Claude AI. Keeps padding inside the specified width of the textbox, instead of outside it */
+    width: 90%;
+    min-width: 0;
+    max-width: none;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    box-sizing: border-box;
 }
 
 /* Conclusion */
